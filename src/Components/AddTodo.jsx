@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { add, remove, toggleComplete } from '../Redux/TodoSlice';
-import '../Components/AddTodo.css'; // Import your CSS file for any non-inline styles
+import '../Components/AddTodo.css';
 import { useNavigate } from 'react-router-dom';
 
 function AddTask() {
@@ -11,7 +11,7 @@ function AddTask() {
   const lists = useSelector((state) => state.todo.data);
 
   const handleSubmit = () => {
-    const task = taskRef.current.value.trim(); // Trim whitespace
+    const task = taskRef.current.value.trim();
 
     if (task) {
       dispatch(add({ name: task }));
@@ -44,7 +44,6 @@ function AddTask() {
         </div>
       </div>
 
-      {/* Spacer element for separation */}
       <div className="spacer"></div>
 
       <div className="task-list-container">
@@ -69,7 +68,7 @@ function AddTask() {
                 <div style={{display: 'flex' }} className="button-container">
                   <button
                     style={{
-                      backgroundColor: '#3f51b5', // Blue
+                      backgroundColor: '#3f51b5', 
                       color: 'white',
                       padding: '5px 10px',
                       borderRadius: '5px',
@@ -83,7 +82,7 @@ function AddTask() {
                   <div style={{ marginRight: '5px' }}></div>
                   <button
                     style={{
-                      backgroundColor: '#f44336', // Red
+                      backgroundColor: '#f44336', 
                       color: 'white',
                       padding: '5px 10px',
                       borderRadius: '5px',
