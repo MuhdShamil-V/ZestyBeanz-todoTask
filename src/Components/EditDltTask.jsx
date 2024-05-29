@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { update } from '../Redux/TodoSlice';
+import '../Components/EditTask.css';
 
 
 function EditTask() {
