@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { add } from '../Redux/TodoSlice'; 
+import { add, remove } from '../Redux/TodoSlice'; 
 import '../Components/AddTodo.css';
+import { useNavigate } from 'react-router-dom';
 
 function AddTask() {
   const taskRef = useRef(null);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const lists = useSelector((state) => state.todo.data);
 
@@ -13,6 +15,11 @@ function AddTask() {
     dispatch(add({ name: task }));
     taskRef.current.value = '';
   };
+
+  const del = (id) => {
+    dispatch(remove(id));
+  };
+
 
   return (
     
@@ -30,8 +37,8 @@ function AddTask() {
         {lists.map((e) => (
           <div key={e.id} className="task-item">
             <h3>{e.name}</h3>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={() => navigate(`/edittask/${e.id}`)}>Edit</button>
+            <button onClick={() => del(e.id)}>Delete</button>
           </div>
         ))}
       </div>
